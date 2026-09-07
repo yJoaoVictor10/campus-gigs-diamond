@@ -1,7 +1,9 @@
 package br.com.fiap.campusgigs.User;
 
 import jakarta.persistence.*;
+import jakarta.validation.constraints.Pattern;
 import lombok.Data;
+
 
 @Data
 @Entity
@@ -20,4 +22,7 @@ public class User {
     private String password;
 
     private String cep;
+
+    @Pattern(regexp = "ADMIN|USER")
+    private String role;
 }
