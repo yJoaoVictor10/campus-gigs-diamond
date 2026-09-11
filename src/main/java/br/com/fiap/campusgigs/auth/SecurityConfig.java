@@ -7,24 +7,20 @@ import com.nimbusds.jose.proc.SecurityContext;
 import org.springframework.boot.context.properties.ConfigurationProperties;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
-import org.springframework.security.config.annotation.method.configuration.EnableMethodSecurity;
+
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.security.oauth2.jwt.JwtDecoder;
 import org.springframework.security.oauth2.jwt.JwtEncoder;
 import org.springframework.security.oauth2.jwt.NimbusJwtDecoder;
 import org.springframework.security.oauth2.jwt.NimbusJwtEncoder;
-import java.security.interfaces.RSAPrivateKey;
-import java.security.interfaces.RSAPublicKey;
+
 
 
 
 @Configuration
 @EnableMethodSecurity
 public class SecurityConfig {
-
-    @ConfigurationProperties
-    public record RsaKeyProperties(RSAPublicKey publicKey, RSAPrivateKey privateKey) {}
 
 
 
@@ -45,10 +41,5 @@ public class SecurityConfig {
     }
 
 
-
-
-    @Bean
-    PasswordEncoder passwordEncoder() {
-        return new BCryptPasswordEncoder();
     }
 }
